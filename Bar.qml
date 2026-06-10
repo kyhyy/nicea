@@ -90,11 +90,15 @@ PanelWindow {
             }
         }
 
-        // Triangle separator: transparent to date background
-        BarUtils.TriangleSeparator {
-            fillColor: Theme.Colors.barBackground
-            backgroundColor: Theme.Colors.barDateBackground
-            pointingRight: true
+        // Volume meter: chevron-shaped, fills with the level.
+        // Scroll to change, left-click to mute. Paints its own slanted
+        // ends so it doubles as the separator into the date section.
+        BarUtils.VolumeWedge {
+            id: volWedge
+            Layout.preferredWidth: implicitWidth
+            Layout.fillHeight: true
+            leftColor: Theme.Colors.barBackground
+            rightColor: Theme.Colors.barDateBackground
         }
 
         // Date section

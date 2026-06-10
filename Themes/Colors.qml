@@ -19,7 +19,10 @@ QtObject {
     property color barClockForeground:     "#282828" // bg0_hard
     property color barDateBackground:  "#504945" // bg2
     property color barDateForeground:  "#ebdbb2" // fg1
-    
+    property color barVolumeBackground: "#1d2021" // bg0_hard - empty track (whole section)
+    property color barVolumeFill:       "#fe8019" // bright-orange - current level
+    property color barVolumeMuted:      "#928374" // gray - shown when muted
+
     // GitHub Contributions Graph colors
     property color graphBackground:      "#1D2021"   // bg1
     property color graphBorder:          "#504945"   // bg2
