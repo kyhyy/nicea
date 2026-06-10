@@ -13,7 +13,7 @@ QtObject {
     // ============================================================
     // USER CONFIGURATION
     // ============================================================
-    readonly property string githubUsername: "KHajduk00"
+    readonly property string githubUsername: "kyhyy"
     readonly property string profilePicture: iconsPath + "/pfp.jpg"
     
     // ============================================================
