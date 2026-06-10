@@ -7,22 +7,14 @@ QtObject {
     // PATHS
     // ============================================================
     readonly property string configPath: Quickshell.env("HOME") + "/.config/quickshell/nicea"
-    readonly property string scriptsPath: configPath + "/DashboardUtils/scripts"
+    readonly property string scriptsPath: configPath + "/scripts"
     readonly property string iconsPath: configPath + "/icons"
-    
-    // ============================================================
-    // USER CONFIGURATION
-    // ============================================================
-    readonly property string githubUsername: "kyhyy"
-    readonly property string profilePicture: iconsPath + "/pfp.jpg"
-    
+
     // ============================================================
     // SCRIPTS
     // ============================================================
-    readonly property string screenshotScript: scriptsPath + "/screenshot.sh"
     readonly property string searchScript: scriptsPath + "/search.sh"
     readonly property string steamScript: scriptsPath + "/steam.sh"
-    readonly property string cpickerScript: scriptsPath + "/cpicker.sh"
 
     // ============================================================
     // Bar Positioning - You have to change both values to move the bar

@@ -24,6 +24,21 @@ PanelWindow {
         anchors.fill: parent
         spacing: 0
 
+        // Far left: Arch logo + hover/pin action tray
+        BarUtils.ActionTray {
+            id: actionTray
+            Layout.preferredWidth: implicitWidth
+            Layout.fillHeight: true
+        }
+
+        // Triangle separator: tray to workspace background
+        BarUtils.TriangleSeparator {
+            Layout.leftMargin: -1
+            fillColor: Theme.Colors.barTrayBackground
+            backgroundColor: Theme.Colors.barWorkspaceBackground
+            pointingRight: true
+        }
+
         // Left side: Workspaces
         Rectangle {
             Layout.preferredWidth: workspaceRow.width + 20

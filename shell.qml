@@ -5,7 +5,4 @@ ShellRoot {
     Bar {
     }
 
-    Dashboard {
-    }
-
 }
