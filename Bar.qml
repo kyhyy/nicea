@@ -7,6 +7,7 @@ import Quickshell.Io
 import Quickshell.Wayland
 import "Themes" as Theme
 import "BarUtils" as BarUtils
+import "Notifications" as Notif
 
 PanelWindow {
     id: bar
@@ -88,20 +89,50 @@ PanelWindow {
             pointingRight: true
         }
 
-        // Center: Focused Window
+        // Center: Focused window title, taken over by notifications when they
+        // arrive. The title fades out and the notification fades in over it.
         Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
             color: Theme.Colors.barBackground
 
+            // Focused window title — hidden while a notification is showing
             Text {
                 anchors.centerIn: parent
-                text: Hyprland.focusedMonitor.activeWindow?.title ?? ""
+                width: parent.width - 20
+                text: ToplevelManager.activeToplevel?.title ?? ""
                 color: Theme.Colors.barClockText
                 font.pixelSize: 14
                 elide: Text.ElideRight
-                width: parent.width - 20
                 horizontalAlignment: Text.AlignHCenter
+                opacity: Notif.NotificationService.active ? 0 : 1
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
+                }
+            }
+
+            // Notification text — fades in over the title, in the volume orange
+            Text {
+                anchors.centerIn: parent
+                width: parent.width - 20
+                text: Notif.NotificationService.text
+                color: Theme.Colors.barVolumeFill
+                font.pixelSize: 14
+                font.bold: true
+                elide: Text.ElideRight
+                horizontalAlignment: Text.AlignHCenter
+                opacity: Notif.NotificationService.active ? 1 : 0
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
+                }
             }
         }
 
