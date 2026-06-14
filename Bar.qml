@@ -129,7 +129,7 @@ PanelWindow {
                     const month = (dateText.date.getMonth() + 1).toString().padStart(2, '0');
                     const day = dateText.date.getDate().toString().padStart(2, '0');
                     const year = dateText.date.getFullYear().toString().slice(-2);
-                    return `${month}/${day}/${year}`;
+                    return `${day}/${month}/${year}`;
                 }
                 anchors.centerIn: parent
                 color: Theme.Colors.barDateForeground
